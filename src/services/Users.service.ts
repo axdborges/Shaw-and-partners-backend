@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const headers = {
-  Authorization: `token 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`,
+  Authorization: `token ${process.env.TOKEN}`,
   Accept: "application/vnd.github+json",
 };
 

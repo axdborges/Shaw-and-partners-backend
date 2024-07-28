@@ -1,12 +1,15 @@
 import axios from "axios";
 
-
+const headers = {
+  Authorization: `token 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`,
+  Accept: "application/vnd.github+json",
+};
 
 export default class UsersService {
   static async listUsers(since: string) {
     const response = await axios.get(
       `https://api.github.com/users?since=${since}`,
-      // { headers },
+      { headers },
     );
 
     const finalResponse = {
@@ -20,7 +23,7 @@ export default class UsersService {
   static async userDetails(username: string) {
     const response = await axios.get(
       `https://api.github.com/users/${username}`,
-      // { headers },
+      { headers },
     );
 
     return response.data;
@@ -29,7 +32,7 @@ export default class UsersService {
   static async userRepos(username: string) {
     const response = await axios.get(
       `https://api.github.com/users/${username}/repos`,
-      // { headers },
+      { headers },
     );
 
     return response.data;
